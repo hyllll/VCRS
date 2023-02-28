@@ -33,7 +33,7 @@ Our VCRSs dataset creation task includes four steps: (1) backbone dataset select
 We choose [Coat](www.cs.cornell.edu/~schnabts/mnar/) and [ML-1M](grouplens.org/datasets/movielens/1m/) as our backbone datasets. Using user-item interactions and item features to simulate a text-based conversation between users and agents for recommendation and using user features to assign proper speakers.
 
 ### Text-based conversation generation
-Please refer to [here](./Dialogue/README.md) for how to generate the text-based conversation and the code is in `./Dialogue/` directory.
+Please refer to [here](https://github.com/hyllll/VCRS/tree/main/Dialogue) for how to generate the text-based conversation and the code is in `./Dialogue/` directory.
 
 ### Voice-based conversation generation
-Please refer to [here](./Speech/README.md) for how to generate the voice-based conversation.
+Please refer to [here](https://github.com/hyllll/VCRS/tree/main/Speech) for how to generate the voice-based conversation.
