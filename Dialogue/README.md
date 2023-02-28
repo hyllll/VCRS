@@ -4,6 +4,7 @@ This is the code for text-based conversation generation
 ## Installtion
 install dependencies via:
 ```
+cd ./Dialogue/
 pip install -r requirements.txt
 ```
 
@@ -23,3 +24,4 @@ Generate conversation in the movie domain.
 ```
 python gen_movie.py
 ```
+You can find generated conversation in `./res/`, such as `dialogue_info_coat.json` or `dialogue_info_ml-1m.json`.
