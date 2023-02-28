@@ -7,7 +7,8 @@ import os
 from coat_utils import *
 from collections import defaultdict
 from config.coat_pattern import start_pattern, agent_pattern, user_pattern
-from config.thanks_pattern import thanks_agent, thanks_user
+from config.thanks_pattern import coat_agent, coat_user
+from config.recommend_pattern import coat_rec
 from coat_attr import generate_gender_dialogue, generate_jacket_dialogue, generate_color_dialogue
 
 def load_data():
@@ -141,11 +142,16 @@ if __name__ == '__main__':
                 color_val = item_info[item_id]["color"]
                 utterance = generate_color_dialogue(agent_pattern, user_pattern, color_val, attr_counts[2], weights[2])
             tmp_new_dialogue.append(utterance)
+        end_dialogue = {}
+        end_dialogue["rec"] = random.choice(coat_rec)
+        end_dialogue["thanks_user"] = random.choice(coat_user)
+        end_dialogue["thanks_agent"] = random.choice(coat_agent)
+        tmp_new_dialogue.append(end_dialogue)
         print("finish:", dialogue_id)
         start_index = 0
         end_index = 0
         step = 0
-        name = ["Q1", "A1", "Q2", "A2", "Q3", "A3", "Q4", "A4", "Q5", "A5", "Q6", "A6", "Q7", "A7", "Q8", "A8", "Q9", "A9", "Q10", "A10"]
+        name = ["Q1", "A1", "Q2", "A2", "Q3", "A3", "Q4", "A4", "Q5", "A5", "Q6", "A6", "Q7", "A7", "Q8", "A8", "Q9", "A9", "Q10", "A10", "Q11", "A11", "Q12", "A12"]
         for dia in tmp_new_dialogue:
             end_index = len(dia) + end_index
             tmp_name = name[start_index : end_index]
@@ -155,8 +161,6 @@ if __name__ == '__main__':
             for i, val in enumerate(tmp_name):
                 new_dialogue["content"][val] = tmp_dia[i]
             start_index = end_index
-        new_dialogue["content"]["thanks_user"] = random.choice(thanks_user)
-        new_dialogue["content"]["thanks_agent"] = random.choice(thanks_agent)
         dialogue_info[dialogue_id] = new_dialogue
         dialogue_id = dialogue_id + 1
 
@@ -164,7 +168,7 @@ if __name__ == '__main__':
     res_path = './res/coat/'
     if not os.path.exists(res_path):
         os.makedirs(res_path)
-    with open(res_path + 'dialogue_info.json', 'w') as f:
+    with open(res_path + 'dialogue_info_coat.json', 'w') as f:
         json.dump(dialogue_info, f, indent=4)
 
 

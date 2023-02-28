@@ -4,7 +4,7 @@ import re
 def get_user_age(age):
     if age < 20:
         age_str = 'under 20'
-    elif age >= 20 & age <= 30:
+    elif age >= 20 and age <= 30:
         age_str = '20-30'
     elif age > 30:
         age_str = 'over 30'

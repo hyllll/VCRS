@@ -26,6 +26,14 @@ https://user-images.githubusercontent.com/38367896/221455311-06c8ef5b-b873-4aab-
 
 Note that since we currently only explore the impact of speech on VCRS from the user's perspective, only the user's speech is included in the provided dataset. If you want complete dialogue audio, you can generate it through the code we provide.
 
+## Data Construction
+Our VCRSs dataset creation task includes four steps: (1) backbone dataset selection; (2)text-based conversation generation; (3) voice-based conversation generation; and (4) quality evaluation.
 
+### Backbone dataset selection
+We choose [Coat](www.cs.cornell.edu/~schnabts/mnar/) and [ML-1M](grouplens.org/datasets/movielens/1m/) as our backbone datasets. Using user-item interactions and item features to simulate a text-based conversation between users and agents for recommendation and using user features to assign proper speakers.
 
+### Text-based conversation generation
+Please refer to [here](./Dialogue/README.md) for how to generate the text-based conversation and the code is in `./Dialogue/` directory.
 
+<!-- ### Voice-based conversation generation
+Please refer to [here](./Dialogue/dialogue.md) for how to generate the voice-based conversation. -->

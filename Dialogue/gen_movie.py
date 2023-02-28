@@ -7,7 +7,8 @@ import os
 from collections import defaultdict
 from movie_utils import *
 from config.movie_pattern import start_pattern, agent_pattern, user_pattern
-from config.thanks_pattern import thanks_agent, thanks_user
+from config.thanks_pattern import movie_agent, movie_user
+from config.recommend_pattern import movie_rec
 from movie_attr import generate_country_dialogue, generate_genre_dialogue, generate_director_dialogue, generate_actor_dialogue
 
 
@@ -138,7 +139,6 @@ if __name__ == '__main__':
         item_id = int(row['movie_id'])
 
         new_dialogue = {}
-        new_dialogue = {}
         new_dialogue["user_id"] = user_id
         new_dialogue["item_id"] = item_id
 
@@ -171,13 +171,19 @@ if __name__ == '__main__':
                 if not english:
                     break
             tmp_new_dialogue.append(utterance)
+        
         if not english:
             continue
+        end_dialogue = {}
+        end_dialogue["rec"] = random.choice(movie_rec)
+        end_dialogue["thanks_user"] = random.choice(movie_user)
+        end_dialogue["thanks_agent"] = random.choice(movie_agent)
+        tmp_new_dialogue.append(end_dialogue)
         print("finish:", dialogue_id)
         start_index = 0
         end_index = 0
         step = 0
-        name = ["Q1", "A1", "Q2", "A2", "Q3", "A3", "Q4", "A4", "Q5", "A5", "Q6", "A6", "Q7", "A7", "Q8", "A8", "Q9", "A9", "Q10", "A10"]
+        name = ["Q1", "A1", "Q2", "A2", "Q3", "A3", "Q4", "A4", "Q5", "A5", "Q6", "A6", "Q7", "A7", "Q8", "A8", "Q9", "A9", "Q10", "A10", "Q11", "A11", "Q12", "A12"]
         for dia in tmp_new_dialogue:
             end_index = len(dia) + end_index
             tmp_name = name[start_index : end_index]
@@ -187,14 +193,12 @@ if __name__ == '__main__':
             for i, val in enumerate(tmp_name):
                 new_dialogue["content"][val] = tmp_dia[i]
             start_index = end_index
-        new_dialogue["content"]["thanks_user"] = random.choice(thanks_user)
-        new_dialogue["content"]["thanks_agent"] = random.choice(thanks_agent)
         dialogue_info[dialogue_id] = new_dialogue
         dialogue_id = dialogue_id + 1
     
     res_path = './res/ml-1m/'
     if not os.path.exists(res_path):
         os.makedirs(res_path)
-    with open(res_path + 'dialogue_info.json', 'w') as f:
+    with open(res_path + 'dialogue_info_ml-1m.json', 'w') as f:
         json.dump(dialogue_info, f, indent=4)
 

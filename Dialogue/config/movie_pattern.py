@@ -63,9 +63,18 @@ agent_pattern = {
             "nl": "What kind of movies do you need?"
         },
         {
+            "tag":['01'],
+            "nl": "What types of movies do you like to watch?"
+        },
+        {
             "tag":['10'],
             "slots":["genre"],
             "nl": "Do you like $genre$ movies?"
+        },
+        {
+            "tag":['10'],
+            "slots":["genre"],
+            "nl": "Are you into $genre$ movies?"
         },
         {
             "tag":['10'],
@@ -433,33 +442,38 @@ user_pattern = {
         },
         {   
             "slots":["genre"],
+            "tag":['00', '01', '20', '30'],
+            "nl":"Generally $genre$."
+        },
+        {   
+            "slots":["genre"],
             "tag":['00', '20', '30'],
             "nl":"I enjoy $genre$."
         },
         {   
             "slots":["genre"],
             "tag":['00', '20', '30'],
-            "nl":"I'm in the mood to watch $genres$ movie."
+            "nl":"I'm in the mood to watch $genre$ movie."
         },
         {   
             "slots":["genre"],
             "tag":['00', '20', '30'],
-            "nl":"I love $genres$ movies."
+            "nl":"I love $genre$ movies."
         },
         {   
             "slots":["genre"],
             "tag":['00', '20', '30'],
-            "nl":"I do enjoy $genres$."
+            "nl":"I do enjoy $genre$."
         },
         {   
             "slots":["genre"],
             "tag":['00', '20', '30'],
-            "nl":"I enjoy most $genres$ movies."
+            "nl":"I enjoy most $genre$ movies."
         },
         {   
             "slots":["genre"],
             "tag":['00', '20', '30'],
-            "nl":"I'm really big on $genres$ movies."
+            "nl":"I'm really big on $genre$ movies."
         },
         {   
             "slots":["genre"],
@@ -501,6 +515,61 @@ user_pattern = {
             "tag":['01', '20', '30'],
             "nl":"I'm interested in watching $genre$."
         },
+        {   
+            "slots":["genre"],
+            "tag":['01', '20', '30'],
+            "nl":"I really enjoy watching $genre$."
+        },
+        {   
+            "slots":["genre"],
+            "tag":['00', '20', '30'],
+            "nl":"I love movies that are $genre$."
+        },
+        {   
+            "slots":["genre"],
+            "tag":['00', '20', '30'],
+            "nl":"I normally love $genre$."
+        },
+        {   
+            "slots":["genre"],
+            "tag":['00', '20', '30'],
+            "nl":"I appreciate $genre$ movies."
+        },
+        {   
+            "slots":["genre"],
+            "tag":['00', '01', '20', '30'],
+            "nl":"I'm more of $genre$ movies."
+        },
+        {   
+            "slots":["genre"],
+            "tag":['00', '01', '20', '30'],
+            "nl":"$genre$ is my favorite."
+        },
+        {   
+            "slots":["genre"],
+            "tag":['00', '01', '20', '30'],
+            "nl":"I like a good $genre$ movie."
+        },
+        {   
+            "slots":["genre"],
+            "tag":['00', '01', '20', '30'],
+            "nl":"Well, I like $genre$ movies a lot."
+        },
+        {   
+            "slots":["genre"],
+            "tag":['00', '01', '20', '30'],
+            "nl":"I usually like $genre$ movies."
+        },
+        {   
+            "slots":["genre"],
+            "tag":['00', '01', '20', '30'],
+            "nl":"I have a passion for $genre$ movies."
+        },
+        {   
+            "slots":["genre"],
+            "tag":['00', '01', '20', '30'],
+            "nl":"I like movies about $genre$"
+        },
     ],
     "genre_pos":[
         {   
@@ -538,6 +607,30 @@ user_pattern = {
         {   
             "tag":['10', '11'],
             "nl":"Great, I like it."
+        },
+        {   
+            "tag":['10', '11'],
+            "nl":"Yeah, I'm more of this type of movie."
+        },
+        {   
+            "tag":['10', '11'],
+            "nl":"That's great, I love it"
+        },
+        {   
+            "tag":['10'],
+            "nl":"Yes, I absolutely love $genre$ movies."
+        },
+        {   
+            "tag":['10'],
+            "nl":"Yes, I am a huge fan of $genre$ movies."
+        },
+        {   
+            "tag":['10'],
+            "nl":"Yes, I enjoy $genre$ movies a lot."
+        },
+        {   
+            "tag":['10'],
+            "nl":"Yes, I am a big fan of $genre$ movies."
         },
         {   
             "tag":['10', '11'],
@@ -592,6 +685,26 @@ user_pattern = {
         {   
             "tag":['10'],
             "nl":"No, it does not appeal to me."
+        },
+        {   
+            "tag":['10'],
+            "nl":"No, I'm not really a fan of $genre$ movies."
+        },
+        {   
+            "tag":['10'],
+            "nl":"No, I don't really enjoy $genre$ movies."
+        },
+        {   
+            "tag":['10'],
+            "nl":"No, I don't like $genre$ movies very much."
+        },
+        {   
+            "tag":['10'],
+            "nl":"No, I don't really care for $genre$ movies."
+        },
+        {   
+            "tag":['10'],
+            "nl":"No, I'm not a big fan of $genre$ movies."
         },
         {   
             "tag":['10', '11'],
@@ -681,6 +794,30 @@ user_pattern = {
             "tag":['20', '30'],
             "nl":"No."
         },
+        {   
+            "tag":['20', '30'],
+            "nl":"They are not to my taste."
+        },
+        {   
+            "tag":['20', '30'],
+            "nl":"I find them unappealing."
+        },
+        {   
+            "tag":['20', '30'],
+            "nl":"I don't have any interest in them."
+        },
+        {   
+            "tag":['20', '30'],
+            "nl":"I don't find them enjoyable."
+        },
+        {   
+            "tag":['20', '30'],
+            "nl":"I'm not really a fan of these genres."
+        },
+        {   
+            "tag":['20', '30'],
+            "nl":"I'm not really interested in these type of movies."
+        },
     ],
     "director":[
         {   
@@ -704,7 +841,7 @@ user_pattern = {
             "nl":"I enjoy $director$'s movies."
         },
         {   
-            "tag":['00', '01', '20', '30'],
+            "tag":['00', '20', '30'],
             "slots":["director"],
             "nl":"I'm really big on $director$'s movies."
         },
@@ -712,6 +849,31 @@ user_pattern = {
             "tag":['00', '20', '30'],
             "slots":["director"],
             "nl":"I like $director$."
+        },
+        {   
+            "tag":['00', '20', '30'],
+            "slots":["director"],
+            "nl":"I am a very big fan of $director$."
+        },
+        {   
+            "tag":['00', '20', '30'],
+            "slots":["director"],
+            "nl":"I love $director$."
+        },
+        {   
+            "tag":['00', '20', '30'],
+            "slots":["director"],
+            "nl":"I like movies by $director$."
+        },
+        {   
+            "tag":['00', '20', '30'],
+            "slots":["director"],
+            "nl":"I really admire the work of $director$."
+        },
+        {   
+            "tag":['00', '20', '30'],
+            "slots":["director"],
+            "nl":"I'm a big fan of $director$."
         },
         {   
             "tag":['01'],
@@ -763,6 +925,26 @@ user_pattern = {
         {   
             "tag":['10', '12'],
             "nl":"Yes."
+        },
+        {   
+            "tag":['10', '12'],
+            "nl":"Yes, I really enjoy this director's movies."
+        },
+        {   
+            "tag":['10', '12'],
+            "nl":"Yes, I am a big fan of this director's movies."
+        },
+        {   
+            "tag":['10', '12'],
+            "nl":"Yes, I think this director is incredibly talented."
+        },
+        {   
+            "tag":['10', '12'],
+            "nl":"Yes, I enjoy the way this director tells stories and creates worlds on screen."
+        },
+        {   
+            "tag":['10', '12'],
+            "nl":"Yes, I am a big fan of this director and their work."
         },
         {   
             "tag":['10', '12'],
@@ -841,6 +1023,26 @@ user_pattern = {
         {   
             "tag":['10', '12'],
             "nl":"No."
+        },
+        {   
+            "tag":['10', '12'],
+            "nl":"No, I don't really enjoy this director's movies."
+        },
+        {   
+            "tag":['10', '12'],
+            "nl":"No, I don't enjoy this director's movies."
+        },
+        {   
+            "tag":['10', '12'],
+            "nl":"No, I'm not a fan of this director's style."
+        },
+        {   
+            "tag":['10', '12'],
+            "nl":"No, I don't care for this director's work."
+        },
+        {   
+            "tag":['10', '12'],
+            "nl":"No, This director's movies are not my cup of tea."
         },
         {   
             "tag":['10', '12'],
@@ -934,12 +1136,62 @@ user_pattern = {
             "tag":['20', '30'],
             "nl":"No."
         },
+        {   
+            "tag":['20', '30'],
+            "nl":"They are not to my taste."
+        },
+        {   
+            "tag":['20', '30'],
+            "nl":"I'm not a fan of those directors."
+        },
+        {   
+            "tag":['20', '30'],
+            "nl":"Their movies are not really to my taste."
+        },
+        {   
+            "tag":['20', '30'],
+            "nl":"I don't enjoy their style of filmmaking."
+        },
+        {   
+            "tag":['20', '30'],
+            "nl":"I don't think their movies are for me."
+        },
     ],
     "actor":[
         {   
             "tag":['00', '20', '30'],
             "slots":["actor"],
             "nl":"$actor$."
+        },
+        {   
+            "tag":['00', '20', '30'],
+            "slots":["actor"],
+            "nl":"I am a very big fan of $actor$."
+        },
+        {   
+            "tag":['00', '20', '30'],
+            "slots":["actor"],
+            "nl":"I love $actor$."
+        },
+        {   
+            "tag":['00', '20', '30'],
+            "slots":["actor"],
+            "nl":"I'm a big fan of $actor$."
+        },
+        {   
+            "tag":['00', '20', '30'],
+            "slots":["actor"],
+            "nl":"I really like $actor$."
+        },
+        {   
+            "tag":['00', '20', '30'],
+            "slots":["actor"],
+            "nl":"$actor$ is at the top of my list."
+        },
+        {   
+            "tag":['00', '20', '30'],
+            "slots":["actor"],
+            "nl":"I have a lot of respect for $actor$."
         },
         {   
             "tag":['00', '20', '30'],
@@ -1016,6 +1268,22 @@ user_pattern = {
         {   
             "tag":['10', '12'],
             "nl":"Yes."
+        },
+        {   
+            "tag":['10', '12'],
+            "nl":"Yes, I enjoy this actor's movies."
+        },
+        {   
+            "tag":['10', '12'],
+            "nl":"Yes, I'm a fan of this actor's work."
+        },
+        {   
+            "tag":['10', '12'],
+            "nl":"Yes, I like this actor's style of acting."
+        },
+        {   
+            "tag":['10', '12'],
+            "nl":"Yes, I often watch this actor's movies."
         },
         {   
             "tag":['10', '12'],
@@ -1097,6 +1365,22 @@ user_pattern = {
         },
         {   
             "tag":['10', '12'],
+            "nl":"No, I don't like the way this actor acts."
+        },
+        {   
+            "tag":['10', '12'],
+            "nl":"I don't think this actor's movies are very well made."
+        },
+        {   
+            "tag":['10', '12'],
+            "nl":"I don't think this actor's movies are worth watching."
+        },
+        {   
+            "tag":['10', '12'],
+            "nl":"I don't think this actor's movies are as good as other people say they are."
+        },
+        {   
+            "tag":['10', '12'],
             "nl":"I'm not fond of this actor."
         },
         {   
@@ -1122,6 +1406,10 @@ user_pattern = {
         {   
             "tag":['11'],
             "nl":"I don't like this actor's movies."
+        },
+        {   
+            "tag":['11'],
+            "nl":"I've tried watching this actor's movies before and I didn't like them."
         },
         {   
             "tag":['11'],
@@ -1207,6 +1495,38 @@ user_pattern = {
             "tag":['20', '30'],
             "nl":"These stars' movies don't hold my attention."
         },
+        {   
+            "tag":['20', '30'],
+            "nl":"They are not to my taste."
+        },
+        {   
+            "tag":['20', '30'],
+            "nl":"I'm not a fan of those actors."
+        },
+        {   
+            "tag":['20', '30'],
+            "nl":"Their movies are not really to my taste."
+        },
+        {   
+            "tag":['20', '30'],
+            "nl":"I don't think their movies are for me."
+        },
+        {   
+            "tag":['20', '30'],
+            "nl":"They are not to my taste."
+        },
+        {   
+            "tag":['20', '30'],
+            "nl":"I'm not a fan of those actors."
+        },
+        {   
+            "tag":['20', '30'],
+            "nl":"Their movies are not really to my taste."
+        },
+        {   
+            "tag":['20', '30'],
+            "nl":"I don't think their movies are for me."
+        },
     ]
 }
 
@@ -1233,5 +1553,7 @@ start_pattern = [
     "Hey could you help me find a movie to watch?",
     "Hi, could you help me find a good movie?",
     "Could you please help me find a good movie?",
-    "Hi I am looking for a good new movie to watch."
+    "Hi I am looking for a good new movie to watch.",
+    "Do you have any other recommendations for movies?",
+    "Hi, I am looking for movies to watch."
 ]

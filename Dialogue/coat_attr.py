@@ -41,6 +41,12 @@ def index_attr_pattern(utterance_pattern, tags, pattern_mode=None):
 
     return utterances
 
+def check_repeat(tmp):
+    tmp_set = set(tmp)
+    if len(tmp) == len(tmp_set):
+        return True
+    else:
+        return False
 
 def generate_gender_dialogue(agent_pattern, user_pattern, gender_val, gender_all, gender_weight):
     gender_dialogue = {}
@@ -91,9 +97,13 @@ def gen_pattern_mode_one(attr, u_content, u_tag, g_tag, other, info):
             add_val = get_item_color_index(val)
             get_item_func = get_item_color
         if g_tag:
+            slot_val = val
             dialogue['Q'] = u_content.replace(slot, val, 1)
             utterance = random.choice(index_attr_pattern(user_pattern[pos], u_tag))
-            dialogue['A'] = utterance['nl']
+            answer = utterance['nl']
+            if slot in answer:
+                answer = answer.replace(slot, slot_val, 1)
+            dialogue['A'] = answer
             tmp = []
         else:
             tmp_other.append(add_val)
@@ -104,7 +114,10 @@ def gen_pattern_mode_one(attr, u_content, u_tag, g_tag, other, info):
                     break
             dialogue['Q'] = u_content.replace(slot, get_item_func(tmp[0]), 1)
             utterance = random.choice(index_attr_pattern(user_pattern[neg], u_tag))
-            dialogue['A'] = utterance['nl'][0].upper() + utterance['nl'][1:]
+            answer = utterance['nl']
+            if slot in answer:
+                answer = answer.replace(slot, get_item_func(tmp[0]), 1)
+            dialogue['A'] = answer[0].upper() + answer[1:]
         
         return dialogue['Q'], dialogue['A'], tmp
 
@@ -153,7 +166,7 @@ def gen_pattern_mode_two(attr, u_content, u_tag, g_tag, other, info):
             tmp_other.append(add_val)
             while True:
                 tmp = random.choices(sorted(all), weights=weight, k=2)
-                if not set(tmp_other) & set(tmp):
+                if (not set(tmp_other) & set(tmp)) and (check_repeat(tmp)):
                     break
             random.shuffle(tmp)
             for v in tmp:
@@ -233,7 +246,7 @@ def generate_jacket_dialogue(agent_pattern, user_pattern, jacket_val, jacket_all
         rounds = random.randint(1,2)
         while True:
             added_attr = random.choices(sorted(jacket_all), weights=jacket_weight, k=3)
-            if not set(jacket_other) & set(added_attr):
+            if (not set(jacket_other) & set(added_attr)) and (check_repeat(added_attr)):
                 break
         random.shuffle(added_attr)
         for v in added_attr:
@@ -251,7 +264,7 @@ def generate_jacket_dialogue(agent_pattern, user_pattern, jacket_val, jacket_all
             else:
                 while True:
                     added_attr = random.choices(sorted(jacket_all), weights=jacket_weight, k=3)
-                    if not set(jacket_other) & set(added_attr):
+                    if (not set(jacket_other) & set(added_attr)) and (check_repeat(added_attr)):
                         break
                 random.shuffle(added_attr)
                 for v in added_attr:
@@ -313,7 +326,7 @@ def generate_color_dialogue(agent_pattern, user_pattern, color_val, color_all, c
         rounds = random.randint(1,2)
         while True:
             added_attr = random.choices(sorted(color_all), weights=color_weight, k=3)
-            if not set(color_other) & set(added_attr):
+            if (not set(color_other) & set(added_attr)) and (check_repeat(added_attr)):
                 break
         random.shuffle(added_attr)
         for v in added_attr:
@@ -331,7 +344,7 @@ def generate_color_dialogue(agent_pattern, user_pattern, color_val, color_all, c
             else:
                 while True:
                     added_attr = random.choices(sorted(color_all), weights=color_weight, k=3)
-                    if not set(color_other) & set(added_attr):
+                    if (not set(color_other) & set(added_attr)) and (check_repeat(added_attr)):
                         break
                 random.shuffle(added_attr)
                 for v in added_attr:

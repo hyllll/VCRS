@@ -1,0 +1,41 @@
+movie_rec = [
+    "Okay, I will suggest some movies you may like.",
+    "Okay, I will recommend some movies you may like.",
+    "All right, I'll give you some movie recommendations.",
+    "Okay, I can recommend some movies that you might enjoy.",
+    "Based on your preferences, I think you might enjoy the following movies.",
+    "I have some movie suggestions that might match your interests.",
+    "Okay, I'll offer some movie recommendations for you.",
+    "Here are some movies that I think you might like based on your preferences.",
+    "Here are some movies that I think would be a good fit for your interests.",
+    "Okay, I'll suggest some movies for you to watch.",
+    "Great, I can suggest some movies that you might like.",
+    "I'll suggest some movies based on your interests.",
+    "Ok, I have some movie recommendations that you might like.",
+    "Let me recommend some movies for you based on your preferences.",
+    "Great, I have suggestions ideas for movies that you might enjoy.",
+    "Now, I have some movies that I think you might like based on your preferences.",
+    "Okay, I have some movie recommendations that might match your interests.",
+    "I will offer some movie suggestions based on what you've told me."
+]
+
+coat_rec = [
+    "Okay, I will suggest some coats you may like.",
+    "Okay, I will recommend some coats you may like.",
+    "All right, I'll give you some coats recommendations.",
+    "Okay, I can recommend some coats that you might enjoy.",
+    "Based on your preferences, I think you might enjoy the following coats.",
+    "I have some coats suggestions that might match your interests.",
+    "Okay, I'll offer some coats recommendations for you.",
+    "Here are some coats that I think you might like based on your preferences.",
+    "Here are some coats that I think would be a good fit for your interests.",
+    "Okay, I'll suggest some coats for you.",
+    "Great, I can suggest some coats that you might like.",
+    "I'll suggest some coats based on your interests.",
+    "Ok, I have some coats recommendations that you might like.",
+    "Let me recommend some coats for you based on your preferences.",
+    "Great, I have suggestions ideas for coats that you might enjoy.",
+    "Now, I have some coats that I think you might like based on your preferences.",
+    "Okay, I have some coats recommendations that might match your interests.",
+    "I will offer some coats suggestions based on what you've told me."
+]

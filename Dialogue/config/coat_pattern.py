@@ -6,6 +6,18 @@ agent_pattern = {
         },
         {
             "tag":['00'],
+            "nl": "Are you looking for coats for men or women?"
+        },
+        {
+            "tag":['00'],
+            "nl": "Are you interested in men's or women's coats?"
+        },
+        {
+            "tag":['00'],
+            "nl": "Do you have a preference for men's or women's coats?"
+        },
+        {
+            "tag":['00'],
             "nl": "Do you want men's coats or women's coats?"
         },
         {
@@ -45,11 +57,33 @@ agent_pattern = {
             "slots":["gender"],
             "nl": "Do you want to buy $gender$'s coats?"
         },
+        {
+            "tag":['11'],
+            "slots":["gender"],
+            "nl": "Are you interested in $gender$'s coats?"
+        },
+        {
+            "tag":['11'],
+            "slots":["gender"],
+            "nl": "Do you need a $gender$'s coat?"
+        },
     ],
     "jacket":[
         {
             "tag":['00'],
             "nl": "What kind of coats do you like?"
+        },
+        {
+            "tag":['00'],
+            "nl": "Do you have a preference for a specific style of coat?"
+        },
+        {
+            "tag":['00'],
+            "nl": "Are you looking for a specific type of coat?"
+        },
+        {
+            "tag":['00'],
+            "nl": "What kind of coats do you like to wear?"
         },
         {
             "tag":['00'],
@@ -103,6 +137,26 @@ agent_pattern = {
         {
             "tag":['10'],
             "slots":["jacket"],
+            "nl": "Are you a fan of $jacket$ coats?"
+        },
+        {
+            "tag":['10'],
+            "slots":["jacket"],
+            "nl": "Do you usually wear $jacket$ coats?"
+        },
+        {
+            "tag":['10'],
+            "slots":["jacket"],
+            "nl": "Do you prefer $jacket$ coats over other types of coats?"
+        },
+        {
+            "tag":['10'],
+            "slots":["jacket"],
+            "nl": "Are you interested in trying out a $jacket$ coat?"
+        },
+        {
+            "tag":['10'],
+            "slots":["jacket"],
             "nl": "Have you worn any $jacket$ coats?"
         },
         {
@@ -114,6 +168,16 @@ agent_pattern = {
             "tag":['11'],
             "slots":["jacket"],
             "nl": "How about $jacket$ coats?"
+        },
+        {
+            "tag":['11'],
+            "slots":["jacket"],
+            "nl": "What do you think about $jacket$ coats?"
+        },
+        {
+            "tag":['11'],
+            "slots":["jacket"],
+            "nl": "Have you considered trying a $jacket$ coat?"
         },
         {
             "tag":['11'],
@@ -168,6 +232,22 @@ agent_pattern = {
         },
         {
             "tag":['00'],
+            "nl": "Do you have a preference for a specific color of coat?"
+        },
+        {
+            "tag":['00'],
+            "nl": "Do you have any color preferences when it comes to coats?"
+        },
+        {
+            "tag":['00'],
+            "nl": "What colors of coats do you like to wear?"
+        },
+        {
+            "tag":['00'],
+            "nl": "What colors of coats are you interested in?"
+        },
+        {
+            "tag":['00'],
             "nl": "What color do you have in mind?"
         },
         {
@@ -206,6 +286,26 @@ agent_pattern = {
             "tag":['10'],
             "slots":["color"],
             "nl": "Do you like $color$ coats?"
+        },
+        {
+            "tag":['10'],
+            "slots":["color"],
+            "nl": "Are you a fan of $color$ coats?"
+        },
+        {
+            "tag":['10'],
+            "slots":["color"],
+            "nl": "Do you usually wear $color$ coats?"
+        },
+        {
+            "tag":['10'],
+            "slots":["color"],
+            "nl": "Do you prefer $color$ coats over other colors?"
+        },
+        {
+            "tag":['10'],
+            "slots":["color"],
+            "nl": "Are you interested in trying out a $color$ coat?"
         },
         {
             "tag":['10'],
@@ -279,6 +379,16 @@ user_pattern = {
         },
         {
             "slots":["gender"],
+            "tag":['00'],
+            "nl":"I'm looking for $gender$'s coats."
+        },
+        {
+            "slots":["gender"],
+            "tag":['00'],
+            "nl":"I'm interested in $gender$'s coats."
+        },
+        {
+            "slots":["gender"],
             "tag":['00', '01', '02'],
             "nl":"$gender$."
         },
@@ -296,6 +406,16 @@ user_pattern = {
             "slots":["gender"],
             "tag":['01'],
             "nl":"I prefer to $gender$'s coats."
+        },
+        {
+            "slots":["gender"],
+            "tag":['01'],
+            "nl":"I prefer wearing $gender$'s coats."
+        },
+        {
+            "slots":["gender"],
+            "tag":['01'],
+            "nl":"I'm more comfortable in $gender$'s coats."
         },
         {
             "slots":["gender"],
@@ -325,6 +445,18 @@ user_pattern = {
         },
         {
             "tag":['10', '11'],
+            "nl":"Yes, I am interested in $gender$'s coats."
+        },
+        {
+            "tag":['10', '11'],
+            "nl":"Yes, I've been looking for the perfect $gender$'s coat for a while now."
+        },
+        {
+            "tag":['10', '11'],
+            "nl":"Yes, I am definitely interested in women's coats."
+        },
+        {
+            "tag":['10', '11'],
             "nl":"Yes, I want it."
         },
         {
@@ -348,6 +480,14 @@ user_pattern = {
         {
             "tag":['10', '11'],
             "nl":"No."
+        },
+        {
+            "tag":['10', '11'],
+            "nl":"No, I'm not interested in $gender$'s coats."
+        },
+        {
+            "tag":['10', '11'],
+            "nl":"No, I'm not interested in $gender$'s coats at this time."
         },
         {
             "tag":['10'],
@@ -381,6 +521,26 @@ user_pattern = {
             "tag":['00', '20', '30'],
             "slots":["jacket"],
             "nl":"I like coats that are $jacket$."
+        },
+        {
+            "tag":['00', '20', '30'],
+            "slots":["jacket"],
+            "nl":"I really like $jacket$ coats."
+        },
+        {
+            "tag":['00', '20', '30'],
+            "slots":["jacket"],
+            "nl":"I'm a big fan of $jacket$ coats."
+        },
+        {
+            "tag":['00', '20', '30'],
+            "slots":["jacket"],
+            "nl":"I love the look and feel of $jacket$ coats."
+        },
+        {
+            "tag":['00', '20', '30'],
+            "slots":["jacket"],
+            "nl":"I always feel stylish and comfortable in $jacket$ coats."
         },
         {
             "tag":['00', '20', '30'],
@@ -497,6 +657,26 @@ user_pattern = {
         },
         {
             "tag":['10', '11'],
+            "nl":"Yes, I love $jacket$ coats."
+        },
+        {
+            "tag":['10', '11'],
+            "nl":"Absolutely, I'm a big fan of $jacket$ coats."
+        },
+        {
+            "tag":['10', '11'],
+            "nl":"Yes, I really like the look and feel of $jacket$ coats."
+        },
+        {
+            "tag":['10'],
+            "nl":"Yeah, I'm more of this kind of coats."
+        },
+        {
+            "tag":['10', '11'],
+            "nl":"That's great, I love it."
+        },
+        {
+            "tag":['10', '11'],
             "nl":"Ooh that seems great!"
         },
         {
@@ -524,6 +704,18 @@ user_pattern = {
         {
             "tag":['10'],
             "nl":"No."
+        },
+        {
+            "tag":['10'],
+            "nl":"No, I'm not a fan of $jacket$ coats."
+        },
+        {
+            "tag":['10'],
+            "nl":"No, I don't usually wear $jacket$ coats."
+        },
+        {
+            "tag":['10'],
+            "nl":"No, $jacket$ coats are not really my style."
         },
         {
             "tag":['10'],
@@ -583,6 +775,26 @@ user_pattern = {
         },
         {
             "tag":['20', '30'],
+            "nl":"They are not to my taste."
+        },
+        {
+            "tag":['20', '30'],
+            "nl":"I find them unappealing."
+        },
+        {
+            "tag":['20', '30'],
+            "nl":"I don't have any interest in them."
+        },
+        {
+            "tag":['20', '30'],
+            "nl":"I don't find them enjoyable."
+        },
+        {
+            "tag":['20', '30'],
+            "nl":"I'm not really interested in these type of coats."
+        },
+        {
+            "tag":['20', '30'],
             "nl":"I'm not fond of them."
         },
         {
@@ -638,6 +850,21 @@ user_pattern = {
             "tag":['00','20', '30'],
             "slots":["color"],
             "nl":"I like $color$."
+        },
+        {
+            "tag":['00','20', '30'],
+            "slots":["color"],
+            "nl":"I really like $color$ coats."
+        },
+        {
+            "tag":['00','20', '30'],
+            "slots":["color"],
+            "nl":"I'm a big fan of $color$ coats."
+        },
+        {
+            "tag":['00','20', '30'],
+            "slots":["color"],
+            "nl":"I absolutely love the color $color$."
         },
         {
             "tag":['00','20', '30'],
@@ -749,6 +976,22 @@ user_pattern = {
         },
         {
             "tag":['10', '11'],
+            "nl":"Yes, I love $color$ coats."
+        },
+        {
+            "tag":['10', '11'],
+            "nl":"Absolutely, I'm a big fan of $color$ coats."
+        },
+        {
+            "tag":['10', '11'],
+            "nl":"That's great, I love it."
+        },
+        {
+            "tag":['10'],
+            "nl":"Yeah, I'm more of this color coats."
+        },
+        {
+            "tag":['10', '11'],
             "nl":"Ooh that seems great!"
         },
         {
@@ -776,6 +1019,18 @@ user_pattern = {
         {
             "tag":['10'],
             "nl":"No."
+        },
+        {
+            "tag":['10'],
+            "nl":"No, I'm not a fan of $color$ coats."
+        },
+        {
+            "tag":['10'],
+            "nl":"No, I don't usually wear $color$ coats."
+        },
+        {
+            "tag":['10'],
+            "nl":"No, $color$ coats are not really my style."
         },
         {
             "tag":['10'],
@@ -873,6 +1128,26 @@ user_pattern = {
             "tag":['20', '30'],
             "nl":"No."
         },
+        {
+            "tag":['20', '30'],
+            "nl":"They are not to my taste."
+        },
+        {
+            "tag":['20', '30'],
+            "nl":"I find them unappealing."
+        },
+        {
+            "tag":['20', '30'],
+            "nl":"I don't have any interest in them."
+        },
+        {
+            "tag":['20', '30'],
+            "nl":"I don't find them enjoyable."
+        },
+        {
+            "tag":['20', '30'],
+            "nl":"I'm not really interested in these color of coats."
+        },
     ],
 }
 
@@ -898,5 +1173,7 @@ start_pattern = [
     "Hey could you help me find a coat?",
     "Hi, could you help me find a good coat?",
     "Could you please help me find a good coat?",
-    "Hi I am looking for a good new coat."
+    "Hi I am looking for a good new coat.",
+    "Do you have any other recommendations for coats?",
+    "Hi, I am looking for coats."
 ]

@@ -84,7 +84,10 @@ def gen_pattern_mode_one(attr, u_content, u_tag, g_tag, other, info):
                 slot_val = slot_val.lower()
             dialogue['Q'] = u_content.replace(slot, slot_val, 1)
             utterance = random.choice(index_attr_pattern(user_pattern[pos], u_tag))
-            dialogue['A'] = utterance['nl']
+            answer = utterance['nl']
+            if '$genre$' in answer:
+                answer = answer.replace('$genre$', slot_val, 1)
+            dialogue['A'] = answer
             tmp = []
         else:
             if attr == 'genre' or attr == 'actor':
@@ -101,7 +104,10 @@ def gen_pattern_mode_one(attr, u_content, u_tag, g_tag, other, info):
                 slot_val = slot_val.lower()
             dialogue['Q'] = u_content.replace(slot, slot_val, 1)
             utterance = random.choice(index_attr_pattern(user_pattern[neg], u_tag))
-            dialogue['A'] = utterance['nl'][0].upper() + utterance['nl'][1:]
+            answer = utterance['nl']
+            if '$genre$' in answer:
+                answer = answer.replace('$genre$', slot_val, 1)
+            dialogue['A'] = answer[0].upper() + answer[1:]
         
         return dialogue['Q'], dialogue['A'], tmp
 
@@ -167,15 +173,10 @@ def gen_pattern_mode_two(attr, u_content, u_tag, g_tag, other, info):
                 if (not set(tmp_other) & set(tmp)) and (check_repeat(tmp)):
                     break
             random.shuffle(tmp)
-            #############
-            last_v = 'test'
             for v in tmp:
-                if last_v == v:
-                    print(tmp)
                 if attr == 'genre':
                     v = v.lower()
                 u_content = u_content.replace(slot, v, 1)
-                last_v = v
             dialogue['Q'] = u_content
             utterance = random.choice(index_attr_pattern(user_pattern[neg], u_tag))
             dialogue['A'] = utterance['nl'][0].upper() + utterance['nl'][1:]
