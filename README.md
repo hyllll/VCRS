@@ -37,3 +37,10 @@ Please refer to [here](https://github.com/hyllll/VCRS/tree/main/Dialogue) for ho
 
 ### Voice-based conversation generation
 Please refer to [here](https://github.com/hyllll/VCRS/tree/main/Speech) for how to generate the voice-based conversation.
+
+## Acknowledgement
+* Convert text to audio using [VITS](https://github.com/jaywalnut310/vits), a SOTA end-to-end text-to-speech (TTS) model.
+
+* Improve code efficiency by [conv_rec_sys](https://github.com/xxkkrr/conv_rec_sys).
+
+* Evaluate text-based conversation with [Fed](https://github.com/exe1023/DialEvalMetrics).
