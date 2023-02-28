@@ -35,5 +35,5 @@ We choose [Coat](www.cs.cornell.edu/~schnabts/mnar/) and [ML-1M](grouplens.org/d
 ### Text-based conversation generation
 Please refer to [here](./Dialogue/README.md) for how to generate the text-based conversation and the code is in `./Dialogue/` directory.
 
-<!-- ### Voice-based conversation generation
-Please refer to [here](./Dialogue/dialogue.md) for how to generate the voice-based conversation. -->
+### Voice-based conversation generation
+Please refer to [here](./Speech/README.md) for how to generate the voice-based conversation.
