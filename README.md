@@ -38,6 +38,19 @@ Please refer to [here](https://github.com/hyllll/VCRS/tree/main/Dialogue) for ho
 ### Voice-based conversation generation
 Please refer to [here](https://github.com/hyllll/VCRS/tree/main/Speech) for how to generate the voice-based conversation.
 
+### Quality evaluation
+We adopt the fine-grained evaluation of dialogue (FED) metric to measure the quality of the generated text-based conversation.
+#### Installtion
+```
+pip install -r requirements.txt
+```
+#### RUN
+1. ```cd ./Evaluate/```
+2. ``` python evaluate.py --dataset='xxx'```, ```xxx``` is ```coat``` or ```ml-1m```.
+3. All results are saved in `./res/` directory.
+
+
+
 ## Acknowledgement
 * Convert text to audio using [VITS](https://github.com/jaywalnut310/vits), a SOTA end-to-end text-to-speech (TTS) model.
 
