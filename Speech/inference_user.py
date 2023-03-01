@@ -24,7 +24,7 @@ if __name__ == '__main__':
                         type=int, 
                         default=0)
     args = parser.parse_args()
-    with open(f"../Dialogue/res/dialogue_info_{args.dataset}.json",'r') as load_f:
+    with open(f"../Dialogue/res/{args.dataset}/dialogue_info_{args.dataset}.json",'r') as load_f:
         dialogue = json.load(load_f)
     logger = logging.getLogger()
     logger.setLevel(logging.ERROR)

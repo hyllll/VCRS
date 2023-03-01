@@ -22,7 +22,7 @@ if __name__ == '__main__':
                         default='mp3', 
                         help='select format, option: wav, flac, mp3')    
     args = parser.parse_args()
-    with open(f"../Dialogue/res/dialogue_info_{args.dataset}.json",'r') as load_f:
+    with open(f"../Dialogue/res/{args.dataset}/dialogue_info_{args.dataset}.json",'r') as load_f:
         dialogue = json.load(load_f)
     random.seed(2023)
     logger = logging.getLogger()
