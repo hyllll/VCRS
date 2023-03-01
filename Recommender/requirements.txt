@@ -1,0 +1,6 @@
+torch
+torchaudio
+argparse
+tqdm
+transformers
+sklearn
