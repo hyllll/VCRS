@@ -30,4 +30,4 @@ This is the code for voice-based conversation generation
     ```
     ```xxx``` is ```coat``` or ```ml-1m```
 3. Note that all python scripts are used to generate complete audio on ml-1m, you can generate a certain number of audio according to your needs.
-4. All results are saved in './speech_res/' directory.
+4. All results are saved in `./speech_res/` directory.
