@@ -26,6 +26,11 @@ https://user-images.githubusercontent.com/38367896/221455311-06c8ef5b-b873-4aab-
 
 Note that since we currently only explore the impact of speech on VCRS from the user's perspective, only the user's speech is included in the provided dataset. If you want complete dialogue audio, you can generate it through the code we provide.
 
+## Potential Solution Exploration
+We propose to extract explicit semantic features from the voice data and then incorporate them into the recommendation model in a two-phase fusion manner.
+
+Please refer to [here](https://github.com/hyllll/VCRS/tree/main/Recommender) for how to run the code.
+
 ## Data Construction
 Our VCRSs dataset creation task includes four steps: (1) backbone dataset selection; (2)text-based conversation generation; (3) voice-based conversation generation; and (4) quality evaluation.
 
