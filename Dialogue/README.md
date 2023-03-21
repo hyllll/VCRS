@@ -15,6 +15,8 @@ pip install -r requirements.txt
 
 2. Corresponding templates are in the `./config/` directory. You can also add some new templates to enrich the conversation.
 
+3. For convenience, we also summarize the templates we use in the [document](https://fssntlo70a.feishu.cn/sheets/shtcn5rtVsQa69LA1efCJpWeIEd).
+
 ## RUN
 Generate conversation in the e-commerce domain.
 ```
