@@ -9,7 +9,7 @@ pip install -r requirements.txt
 ```
 
 ## Prepare Data
-1. Download datasets from Google Drive: [coat.tar.gz](https://drive.google.com/file/d/1FnpYhMaeskckxGheKjar0U4YHIdDKM6K/view?usp=share_link) and [ml-1m.tar.gz](https://drive.google.com/file/d/1FnpYhMaeskckxGheKjar0U4YHIdDKM6K/view?usp=share_link)
+1. Download datasets from Google Drive: [coat.tar.gz](https://drive.google.com/file/d/1FnpYhMaeskckxGheKjar0U4YHIdDKM6K/view?usp=share_link) and [ml-1m.tar.gz](https://drive.google.com/file/d/195ugsUrU51VMUjjI329M84qegtK2QuGC/view?usp=sharing)
 
 2. Put the dataset in the `./data/` directory.
 
@@ -31,6 +31,15 @@ MCM aims to extract explicit semantic features (e.g., user age) from our created
 
 ## Voice Feature Integration Module (VFIM)
 VFIM seeks to integrate the extracted voice-related features into the recommendation model for a performance-enhanced recommendation, which builds a two-phase fusion framework together with the MCM.
-```
-python run.py
-```
+
+* Factorization Machineal (FM) algorithm on Coat
+    ```
+    python gen_label.py --dataset=coat
+    python fm_audio.py --dataset=coat
+    ```
+
+* Factorization Machineal (FM) algorithm on ML-1M
+    ```
+    python gen_label.py --dataset=ml-1m
+    python fm_audio.py --dataset=ml-1m
+    ```

@@ -2,12 +2,12 @@ import os
 import torch
 import numpy as np
 import pandas as pd
-import scipy.sparse as sp
 from torch.utils.data import Dataset,DataLoader
 import torch.nn as nn
 import torch.nn.functional as F
 import torchaudio
 import tqdm as tqdm
+import argparse
 from transformers import Wav2Vec2Model, Wav2Vec2PreTrainedModel, AutoConfig
 
 
@@ -65,10 +65,29 @@ class Wav2Vec2ClassificationModel(Wav2Vec2PreTrainedModel):
         
         return age_logits, gender_logits
 
+def construct_data(input_dir):
+    datalist = os.listdir(input_dir)
+    user = []
+    item = []
+    gender = []
+    age = []
+    name = []
+    for file in datalist:
+        u_id = int(file.split('_')[1][3:])
+        i_id = int(file.split('_')[2][3:])
+        user.append(u_id)
+        item.append(i_id)
+        
+        name.append(file)
+        gender.append(file.split('_')[-2])
+        age.append(file.split('_')[-3])
+    data = pd.DataFrame({'user':user, 'item':item, 'gender':gender, 'age':age, 'audio_name':name})
+
+    return data
 
 class GenDataset(Dataset):
-    def __init__(self, df_path, audio_path):
-        self.df = pd.read_csv(df_path)
+    def __init__(self, df, audio_path):
+        self.df = df
         self.audio_path = audio_path
         self.user = self.df.iloc[:,0].values
         self.item = self.df.iloc[:,1].values
@@ -133,11 +152,20 @@ def number_of_correct(pred, target):
     return pred.eq(target).sum().item()
 
 if __name__ == '__main__':
-    model = torch.load('./clf_model_coat.pt')
-    df_path = '/home/workshop/dataset/lhy/Speech/recommend/data/ml-1m_mp3.csv'
-    audio_path = '/home/workshop/dataset/lhy/Speech/audio_classification/data/ml-1m_mp3/'
+    parser = argparse.ArgumentParser(description='generate label on audio')
+    parser.add_argument('--model', 
+                        type=str, 
+                        default='ml-1m')
+    parser.add_argument('--dataset', 
+                        type=str, 
+                        default='coat')
+    args = parser.parse_args()
 
-    pre_data = GenDataset(df_path, audio_path)
+    model = torch.load(f'./clf_model_{args.model}.pt')
+    audio_path = f'./data/{args.dataset}/'
+    data = construct_data(audio_path)
+
+    pre_data = GenDataset(data, audio_path)
     pre_loader = DataLoader(
         pre_data,
         batch_size=4,
@@ -181,6 +209,8 @@ if __name__ == '__main__':
     gender_accu = gender_correct / len(pre_loader.dataset) * 100.
         
     print(f"Age: {age_accu:.2f}% Gender: {gender_accu:.2f}%")
-
+    result_save_path = './res/'
+    if not os.path.exists(result_save_path):
+        os.makedirs(result_save_path)
     data = pd.DataFrame({'user':list(users), 'item':list(items), 'gender':list(genders), 'age':list(ages)})
-    data.to_csv('./res/ml-1m_predict.csv', index=False)
+    data.to_csv(f'./res/{args.dataset}_predict.csv', index=False)

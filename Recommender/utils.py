@@ -228,3 +228,26 @@ def hr_at_k(rs, test_ur):
 
     return hr
 
+def get_feature(feature_list):
+    if 'gender' in feature_list:
+        feature_num = 0
+    elif 'age' in feature_list:
+        feature_num = 1
+    elif 'gender' in feature_list and 'age' in feature_list:
+        feature_num = 2
+    elif 'gender' not in feature_list and 'age' not in feature_list:
+        feature_num = 3
+    
+    return feature_num
+
+def get_user_info(df, feature_num):
+    user_info = dict()
+    for _, row in df.iterrows():
+        if feature_num == 0:
+            user_info[int(row['user'])] = [int(row['gender'])]
+        elif feature_num == 1:
+            user_info[int(row['user'])] = [int(row['age'])]
+        elif feature_num == 2:
+            user_info[int(row['user'])] = [int(row['gender']), int(row['age'])]
+    return user_info
+
