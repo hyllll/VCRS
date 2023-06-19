@@ -50,8 +50,7 @@ Speaker information on the vctk dataset can be found [here](www.udialogue.org/do
 ## Case study
 Here we provide a demo of a data file (i.e., `diaid21_uid249_iid35_20-30_men_251.mp3`) that contains text and audio dialogue between the user and the agent. 
 
-https://user-images.githubusercontent.com/38367896/221455311-06c8ef5b-b873-4aab-9fdc-3c274908bbee.mp4
-
+https://github.com/hyllll/VCRS/assets/38367896/b2b1b4d7-e860-46f4-9d6f-24ac8e1a6192
 
 Note that since we currently only explore the impact of speech on VCRS from the user's perspective, only the user's speech is included in the provided dataset. If you want complete dialogue audio, you can generate it through the code we provide.
 
