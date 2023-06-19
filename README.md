@@ -21,7 +21,6 @@
     </li>
     <li><a href="#potential-solution-exploration">Potential Solution Exploration</a></li>
     <li><a href="#data-construction">Data Construction</a></li>
-    <li><a href="#contributing">Contributing</a></li>
     <li><a href="#acknowledgement">Acknowledgement</a></li>
   </ol>
 </details>
