@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://github.com/hyllll/VCRS">
-    <img src="Images/logo.png" alt="Logo" width="500" height="160">
+    <img src="images/logo.png" alt="Logo" width="500" height="160">
   </a>
 
   <h3 align="center">Voice-based Conversational Recommender Systems</h3>
@@ -65,7 +65,7 @@ Please refer to [here](https://github.com/hyllll/VCRS/tree/main/Recommender) for
 Our VCRSs dataset creation task includes four steps: (1) backbone dataset selection; (2)text-based conversation generation; (3) voice-based conversation generation; and (4) quality evaluation.
 <br>
 <p align="center">
-  <img src="Images/framework.png" align="center" width="100%">
+  <img src="images/framework.png" align="center" width="100%">
   <br>
 </p>
 <br>
